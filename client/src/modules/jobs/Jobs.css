@@ -1,0 +1,30 @@
+.Jobs {
+  padding-top: 2rem;
+}
+
+.Jobs .jobs-segment {
+  margin-bottom: 1rem;
+}
+
+.JobCard {
+  text-align: left;
+  margin-bottom: 1rem;
+  word-wrap: break-word; 
+}
+
+.JobCard .info {
+  padding: 1rem;
+  margin-top: 0.3rem;
+}
+
+.JobCard .info svg {
+  display: inline-block;
+}
+
+.AddJob {
+  text-align: left;
+}
+
+.AddJob .job-url {
+  width: 100%;
+}
