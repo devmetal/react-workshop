@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const socketio = require('socket.io');
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 const server = http.Server(app);
 const io = socketio(server);
@@ -26,8 +28,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
+app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
@@ -36,8 +37,8 @@ app.use((err, req, res, next) => {
   res.send('error');
 });
 
-server.listen(3000, () => {
-  console.log('Listening');
+server.listen(PORT, () => {
+  process.stdout.write(`Listening on ${PORT}`);
 });
 
 module.exports = app;

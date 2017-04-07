@@ -65,6 +65,11 @@ sentimentQueue
   })
   .on('failed', (job, error) => {
     log(`Job Failed ${job.data.url} ${error}`);
-    messageQueue.add({ url: job.data.url, done: false, jobId: job.jobId, error: (error.message) ? error.message : error });
+    messageQueue.add({
+      url: job.data.url,
+      done: false,
+      jobId: job.jobId,
+      error: (error.message) ? error.message : error,
+    });
   })
   .on('error', error => log((error.message) ? error.message : error));

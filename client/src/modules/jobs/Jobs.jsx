@@ -10,7 +10,6 @@ import './Jobs.css';
 export class Jobs extends Component {
   handleDelete = (job) => this.props.dispatch(Actions.removeJob(job));
   handleAdd = (url) => this.props.dispatch(Actions.addJob(url));
-  handleTick = (job) => {};
 
   componentDidMount() {
     const socket = io('http://localhost:3000');
@@ -26,7 +25,6 @@ export class Jobs extends Component {
         jobs={jobs}
         onAdd={this.handleAdd}
         onDelete={this.handleDelete}
-        onTick={this.handleTick}
       />
     )
   }

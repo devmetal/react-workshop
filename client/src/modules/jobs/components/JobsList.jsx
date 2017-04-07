@@ -6,7 +6,7 @@ import JobCard from './JobCard';
 
 export default class extends Component {
   render() {
-    const { onAdd, onDelete, jobs, onTick } = this.props;
+    const { onAdd, onDelete, jobs } = this.props;
     return (
       <Grid className="Jobs" fluid>
         <Row className="jobs-segment">
@@ -26,7 +26,6 @@ export default class extends Component {
                   <JobCard 
                     job={job}
                     onDelete={onDelete}
-                    onTick={onTick}
                   />
                 </Col>
               ))}

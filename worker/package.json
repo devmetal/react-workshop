@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --env=node"
+    "test": "jest --env=node",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
