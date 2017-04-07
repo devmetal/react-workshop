@@ -23,4 +23,12 @@ router.get('/:id', (req, res) => {
   return res.json(job);
 });
 
-module.exports = router;
+module.exports = (io) => {
+  const events = model.events;
+
+  io.on('connection', (socket) => {
+    events.on('info', job => socket.emit('info', job));
+  });
+
+  return router;
+};

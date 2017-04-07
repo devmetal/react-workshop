@@ -1,11 +1,15 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
-const index = require('./modules/index');
-const analizis = require('./modules/analizis');
+const http = require('http');
+const socketio = require('socket.io');
 
 const app = express();
+const server = http.Server(app);
+const io = socketio(server);
+
+const index = require('./modules/index');
+const analizis = require('./modules/analizis')(io);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -30,6 +34,10 @@ app.use((err, req, res, next) => {
   // render the error page
   res.status(err.status || 500);
   res.send('error');
+});
+
+server.listen(3000, () => {
+  console.log('Listening');
 });
 
 module.exports = app;

@@ -16,6 +16,8 @@ export const getJob = (id) => (dispatch) => {
     });
 };
 
+export const receiveInfo = (job) => ({ type: GET_JOB, job, id: job.jobId });
+
 export const addJob = (url) => (dispatch) => {
   return axios.post('/api/job', { data: { url } })
     .then((response) => {
